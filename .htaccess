@@ -1,0 +1,19 @@
+# Enable Apache Rewrite Engine
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Fallback to map clean event details URLs
+    # Maps: domain.com/event/slug-name -> event-detail.php?slug=slug-name
+    RewriteRule ^event/([a-zA-Z0-9\-]+)/?$ event-detail.php?slug=$1 [QSA,L]
+
+    # Fallback to map clean blog details URLs
+    # Maps: domain.com/blog/slug-name -> blog-detail.php?slug=slug-name
+    RewriteRule ^blog/([a-zA-Z0-9\-]+)/?$ blog-detail.php?slug=$1 [QSA,L]
+
+    # Fallback to clean file extensions
+    # Maps: domain.com/about -> about.php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^([^\/]+)/?$ $1.php [L]
+</IfModule>
