@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 -- Seed default admin user: username 'admin', password 'admin123'
 -- Hash is generated via password_hash('admin123', PASSWORD_BCRYPT)
 INSERT INTO `admin_users` (`id`, `username`, `password`, `fullname`, `email`) 
-VALUES (1, 'admin', '$2y$10$wE99C12jIqg3RjK4e.9lq.l5W7Y8F5K2h9jVvF/gK7eIe37Q0nQpW', 'System Administrator', 'admin@creativeevents.com')
+VALUES (1, 'admin', '$2y$10$cx5KfIlESNXdZkJjLygX7.r0RkIpXb5TkbMnNmpKdvn5WIYNVo/RC', 'System Administrator', 'admin@creativeevents.com')
 ON DUPLICATE KEY UPDATE `username`='admin';
 
 -- --------------------------------------------------------
